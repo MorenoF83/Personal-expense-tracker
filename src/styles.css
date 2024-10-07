@@ -6,8 +6,8 @@
 }
 
 .bar-container {
-    /* display: flex;                    */
-    justify-content: space-between;  
+    display: flex;
+    justify-content: center;  
     gap: 20px;                 
     padding: 20px;     
 }
