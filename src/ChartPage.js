@@ -1,28 +1,38 @@
+//ChartPage.js
 import React, { useState, useEffect, useRef } from "react";
-import { v4 as uuidv4 } from "uuid"; // Import the uuid library
+import { v4 as uuidv4 } from "uuid"; 
 import './styles.css'; // Import the CSS styles
 
 // Dummy initial data
 export const initialData = [
-  { id: uuidv4(), transaction: "Rent", type: "Expense", amount: 1200, date: "2024-01-01" },
-  { id: uuidv4(), transaction: "Groceries", type: "Expense", amount: 150, date: "2024-01-05" },
-  { id: uuidv4(), transaction: "Utilities", type: "Expense", amount: 200, date: "2024-01-10" },
-  { id: uuidv4(), transaction: "Salary", type: "Income", amount: 3500, date: "2024-01-15" },
-  { id: uuidv4(), transaction: "Freelance Work", type: "Income", amount: 800, date: "2024-01-20" },
-  { id: uuidv4(), transaction: "Car Payment", type: "Expense", amount: 300, date: "2024-01-25" },
-  { id: uuidv4(), transaction: "Dining Out", type: "Expense", amount: 75, date: "2024-01-30" },
-  { id: uuidv4(), transaction: "Gym Membership", type: "Expense", amount: 50, date: "2024-02-01" },
-  { id: uuidv4(), transaction: "Gift for Friend", type: "Expense", amount: 60, date: "2024-02-10" },
-  { id: uuidv4(), transaction: "Electricity Bill", type: "Expense", amount: 80, date: "2024-02-15" },
-  { id: uuidv4(), transaction: "Side Project Income", type: "Income", amount: 500, date: "2024-02-20" },
-  { id: uuidv4(), transaction: "Pet Supplies", type: "Expense", amount: 40, date: "2024-02-25" },
-  { id: uuidv4(), transaction: "Consulting Fee", type: "Income", amount: 1200, date: "2024-03-01" },
-  { id: uuidv4(), transaction: "Travel Expenses", type: "Expense", amount: 350, date: "2024-03-05" },
-  { id: uuidv4(), transaction: "Home Insurance", type: "Expense", amount: 200, date: "2024-03-15" },
-  { id: uuidv4(), transaction: "Online Course", type: "Expense", amount: 120, date: "2024-03-20" },
-  { id: uuidv4(), transaction: "Savings Account Deposit", type: "Income", amount: 600, date: "2024-03-25" },
-  { id: uuidv4(), transaction: "New Laptop", type: "Expense", amount: 1500, date: "2024-03-30" },
-  { id: uuidv4(), transaction: "Bonus", type: "Income", amount: 500, date: "2024-04-01" },
+  { id: uuidv4(), transaction: "Rent", type: "Expense", amount: 1200, date: "2022-04-01" },
+  { id: uuidv4(), transaction: "Groceries", type: "Expense", amount: 150, date: "2022-05-05" },
+  { id: uuidv4(), transaction: "Utilities Bill", type: "Bill", amount: 200, date: "2022-06-10" },
+  { id: uuidv4(), transaction: "Salary", type: "Income", amount: 3500, date: "2022-07-15" },
+  { id: uuidv4(), transaction: "Freelance Work", type: "Income", amount: 800, date: "2022-08-20" },
+  { id: uuidv4(), transaction: "Car Payment", type: "Expense", amount: 300, date: "2022-09-25" },
+  { id: uuidv4(), transaction: "Dining Out", type: "Expense", amount: 75, date: "2022-10-30" },
+  { id: uuidv4(), transaction: "Gym Membership", type: "Expense", amount: 50, date: "2022-11-01" },
+  { id: uuidv4(), transaction: "Gift for Friend", type: "Other", amount: 60, date: "2022-12-10" },
+  { id: uuidv4(), transaction: "Electricity Bill", type: "Bill", amount: 80, date: "2023-01-15" },
+  { id: uuidv4(), transaction: "Side Project Income", type: "Income", amount: 500, date: "2023-02-20" },
+  { id: uuidv4(), transaction: "Pet Supplies", type: "Expense", amount: 40, date: "2023-03-25" },
+  { id: uuidv4(), transaction: "Consulting Fee", type: "Income", amount: 1200, date: "2023-04-01" },
+  { id: uuidv4(), transaction: "Travel Expenses", type: "Expense", amount: 350, date: "2023-05-05" },
+  { id: uuidv4(), transaction: "Home Insurance", type: "Bill", amount: 200, date: "2023-06-15" },
+  { id: uuidv4(), transaction: "Online Course", type: "Other", amount: 120, date: "2023-07-20" },
+  { id: uuidv4(), transaction: "Savings Account Deposit", type: "Income", amount: 600, date: "2023-08-25" },
+  { id: uuidv4(), transaction: "New Laptop", type: "Expense", amount: 1500, date: "2023-09-30" },
+  { id: uuidv4(), transaction: "Bonus", type: "Income", amount: 500, date: "2023-10-01" },
+  { id: uuidv4(), transaction: "Stock Purchase", type: "Transfer", amount: -1500, date: "2023-11-01" },
+  { id: uuidv4(), transaction: "Gift for Sister", type: "Other", amount: 200, date: "2023-12-05" },
+  { id: uuidv4(), transaction: "Mortgage Payment", type: "Expense", amount: 900, date: "2024-01-15" },
+  { id: uuidv4(), transaction: "Salary Increase", type: "Income", amount: 4000, date: "2024-02-20" },
+  { id: uuidv4(), transaction: "Car Insurance", type: "Bill", amount: 250, date: "2024-03-10" },
+  { id: uuidv4(), transaction: "Transfer to Savings", type: "Transfer", amount: -1000, date: "2024-03-25" },
+  { id: uuidv4(), transaction: "Vacation Fund", type: "Other", amount: 1200, date: "2024-04-01" },
+  { id: uuidv4(), transaction: "Medical Expenses", type: "Expense", amount: 500, date: "2024-05-05" },
+  { id: uuidv4(), transaction: "Freelance Payment", type: "Income", amount: 2000, date: "2024-05-15" },
 ];
 
 const App = () => {
@@ -117,14 +127,16 @@ const App = () => {
       <div>
         <h1>Personal Expense Tracker</h1>
       </div>
-							
+			
+      {/* Pop-up window */}
       {isModalOpen && (
-        <div className="modal">
+        <div className="modal fade-in">
           <div className="modal-content">
             <h4>Add New Transaction</h4>
             <label>
               Transaction Name:
               <input
+              className="input-custom"
                 type="text"
                 name="transaction"
                 value={newTransaction.transaction}
@@ -135,6 +147,7 @@ const App = () => {
             <label>
               Transaction Type:
               <select
+                className="custom-select input-custom "
                 name="type"
                 value={newTransaction.type}
                 onChange={handleNewTransactionChange}									 
@@ -151,6 +164,7 @@ const App = () => {
             </label>
             <div>
               <input
+              className="input-custom"
                 type="number"
                 name="amount"
                 value={newTransaction.amount}
@@ -162,16 +176,17 @@ const App = () => {
             </label>
             <div>
               <input
+                className="input-custom"
                 type="date"
                 name="date"
                 value={newTransaction.date}
                 onChange={handleNewTransactionChange}								 
               />
             </div>
-            <button onClick={handleAddTransaction}>
+            <button className="button-custom" onClick={handleAddTransaction}>
               Add Transaction
             </button>
-            <button onClick={closeModal}>Cancel</button>
+            <button className="button-custom" onClick={closeModal}>Cancel</button>
           </div>
         </div>
       )}
@@ -205,10 +220,11 @@ const App = () => {
   );
 };
 
+//Function to impact row interaction
 const Row = ({ txn, onDelete, onChange }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [isEditing, setIsEditing] = useState(false); // State to track editing mode
-  const [error, setError] = useState(''); // Error state for validation
+  const [isEditing, setIsEditing] = useState(false); 
+  const [error, setError] = useState(''); 
 
   const onSaveClick = () => {
     if (!txn.transaction || txn.amount == 0 || !txn.date) {
@@ -238,6 +254,7 @@ const Row = ({ txn, onDelete, onChange }) => {
         <td>
           {isEditing ? (
             <input
+              className="input-custom"
               type="text"
               value={txn.transaction}
               onChange={(e) => onChange(e, txn.id, "transaction")}
@@ -249,6 +266,7 @@ const Row = ({ txn, onDelete, onChange }) => {
         <td>
           {isEditing ? (
             <select
+            className="custom-select"
               value={txn.type}
               onChange={(e) => onChange(e, txn.id, "type")}
             >
@@ -265,6 +283,7 @@ const Row = ({ txn, onDelete, onChange }) => {
         <td>
           {isEditing ? (
             <input
+              className="input-custom"
               type="number"
               value={txn.amount}
               onChange={(e) => onChange(e, txn.id, "amount")}
@@ -276,6 +295,7 @@ const Row = ({ txn, onDelete, onChange }) => {
         <td>
           {isEditing ? (
             <input
+            className="input-custom"
               type="date"
               value={txn.date}
               onChange={(e) => onChange(e, txn.id, "date")}
@@ -295,6 +315,7 @@ const Row = ({ txn, onDelete, onChange }) => {
           </div>
         </td>
       </tr>
+
       {/* Show error message if there's an error */}
       {error && (
         <tr>

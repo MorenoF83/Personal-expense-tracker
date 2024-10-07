@@ -1,5 +1,10 @@
+//SummaryPage.js
 import React, { useState, useEffect } from 'react';
 import './styles.css'; // Import the CSS styles
+import { Doughnut } from 'react-chartjs-2';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 const SummaryPage = () => {
     const [transactions, setTransactions] = useState([]);
@@ -40,9 +45,28 @@ const SummaryPage = () => {
         setGroupedData(grouped);
     }, [transactions]);
     
+    console.log(groupedData)
+    // Initialize two separate maps
+    const countMap = {};
+    const amountMap = {};
+
+    Object.keys(groupedData).forEach((key) => {
+        countMap[key] = groupedData[key].count;          // Assign count
+        amountMap[key] = groupedData[key].totalAmount;   // Assign totalAmount
+    });
+
     return (
         <div>
             <h1>Grouped Transactions by Type</h1>
+            <div className="bar-container">
+               <div className='summary-bubble'>
+                    <DoughnutChartNumbers dataMap={countMap}/>
+                </div>
+                <div className='summary-bubble'>
+                    <DoughnutChartAmount dataMap={amountMap}/>
+                </div> 
+            </div>
+            
             <div className="summary-container">
             {transactionTypes.map((type) => (
                 <div key={type} className="group summary-bubble">
@@ -54,6 +78,82 @@ const SummaryPage = () => {
             </div>
         </div>
     );
+};
+
+const DoughnutChartNumbers = ({ dataMap }) => {
+    // Prepare the data for the doughnut chart
+    const data = {
+        labels: Object.keys(dataMap), // Transaction types as labels
+        datasets: [
+            {
+                label: 'Transaction Distribution',
+                data: Object.values(dataMap), // Corresponding amounts as data
+                backgroundColor: [
+                    'rgba(75, 192, 192, 0.6)',
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(153, 102, 255, 0.6)',
+                ],
+                borderColor: 'rgba(255, 255, 255, 1)',
+                borderWidth: 2,
+            },
+        ],
+    };
+
+    // Define the chart options
+    const options = {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Transaction Types Distribution Count',
+            },
+        },
+    };
+
+    return <Doughnut data={data} options={options} />;
+};
+
+const DoughnutChartAmount = ({ dataMap }) => {
+    // Prepare the data for the doughnut chart
+    const data = {
+        labels: Object.keys(dataMap), // Transaction types as labels
+        datasets: [
+            {
+                label: 'Transaction Distribution',
+                data: Object.values(dataMap), // Corresponding amounts as data
+                backgroundColor: [
+                    'rgba(255, 159, 64, 0.6)', 
+                    'rgba(255, 205, 86, 0.6)', 
+                    'rgba(100, 221, 23, 0.6)',  
+                    'rgba(233, 30, 99, 0.6)',  
+                    'rgba(30, 136, 229, 0.6)', 
+                ],
+                borderColor: 'rgba(255, 255, 255, 1)',
+                borderWidth: 2,
+            },
+        ],
+    };
+
+    // Define the chart options
+    const options = {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Transaction Types Amount',
+            },
+        },
+    };
+
+    return <Doughnut data={data} options={options} />;
 };
 
 export default SummaryPage;

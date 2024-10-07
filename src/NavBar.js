@@ -1,18 +1,18 @@
 // Navbar.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './styles.css'; // Import the CSS styles
+import './styles.css'; 
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false); // State to manage navbar visibility
+    const [isOpen, setIsOpen] = useState(false); 
 
     const toggleNavbar = () => {
-        setIsOpen(!isOpen); // Toggle the state
+        setIsOpen(!isOpen); 
     };
 
     return (
         <nav className="navbar">
-            <h2 className="logo">Felix Moreno</h2>
+            <h2>Felix Moreno</h2>
             <button className="hamburger" onClick={toggleNavbar}>
                 <span></span>
                 <span></span>
@@ -24,6 +24,7 @@ const Navbar = () => {
                 <li><Link to="/summaryPage">Summary</Link></li>
             </ul>
         </nav>
+        
     );
 };
 

@@ -1,42 +1,54 @@
 /* Styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+:root {
+	--bgcolor: rgb(2, 0, 36);
+}
+
+.bar-container {
+    /* display: flex;                    */
+    justify-content: space-between;  
+    gap: 20px;                 
+    padding: 20px;     
+}
+
 .summary-container {
-    display: flex;               /* Use flexbox for layout */
-    flex-wrap: wrap;            /* Allow bubbles to wrap to the next line if necessary */
-    justify-content: center;     /* Center the bubbles horizontally */
-    gap: 20px;                  /* Space between the bubbles */
-    padding: 20px;              /* Add padding around the container */
+    display: flex;            
+    flex-wrap: wrap;           
+    justify-content: center;  
+    gap: 20px;                 
+    padding: 20px;              
 }
 
 /* Individual summary bubble */
 .summary-bubble {
-    background-color: #f5f5f5;   /* Background color for bubbles */
-    padding: 20px;               /* Padding inside the bubble */
-    border-radius: 10px;         /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    width: 300px;                /* Set a fixed width for bubbles */
-    text-align: center;          /* Center text */
-    font-family: Arial, sans-serif; /* Font style */
+    background-color: #f5f5f5; 
+    padding: 20px;              
+    border-radius: 10px;      
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    width: 300px;               
+    text-align: center;         
 }
 
 .summary-bubble h2 {
-    margin-bottom: 20px;         /* Space below the heading */
-    color: #333;                 /* Heading color */
+    margin-bottom: 20px;         
+    color: #333;               
 }
 
 .summary-item {
-    margin-bottom: 15px;         /* Space below each summary item */
+    margin-bottom: 15px;         
 }
 
 .summary-item p {
-    margin: 0;                   /* No margin for paragraph */
-    font-size: 16px;             /* Font size for paragraph */
-    color: #666;                 /* Paragraph color */
+    margin: 0;                  
+    font-size: 16px;          
+    color: #666;              
 }
 
 .summary-item h3 {
-    margin: 5px 0 0;            /* Space around the heading */
-    font-size: 24px;             /* Font size for sub-heading */
-    color: #333;                 /* Sub-heading color */
+    margin: 5px 0 0;         
+    font-size: 24px;        
+    color: #333;              
 }
 .footer {
     position: fixed;
@@ -50,7 +62,7 @@
 }
 
 .add-expense-btn {
-    background-color: #ff6347; /* Tomato color */
+    background-color: #ff6347; 
     color: white;
     font-size: 24px;
     width: 60px;
@@ -77,88 +89,83 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: #000; /* Black background */
-    color: #fff; /* White text */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
-}
-
-.logo {
-    margin: 0;
-    font-size: 24px; /* Logo size */
-    font-weight: bold; /* Logo weight */
-    font-family: 'Arial', sans-serif; /* Better font */
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #000; 
+    color: #fff; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+	text-transform: uppercase;
+	transition: all 300ms ease;
+	cursor: pointer;
 }
 
 .hamburger {
-    display: none; /* Hide by default */
+    display: none; 
     flex-direction: column;
-    background: none; /* No background */
-    border: none; /* No border */
-    cursor: pointer; /* Pointer cursor on hover */
+    background: none; 
+    border: none;
+    cursor: pointer; 
 }
 
 .hamburger span {
-    width: 30px; /* Width of hamburger lines */
-    height: 3px; /* Height of hamburger lines */
-    background: white; /* White lines */
-    margin: 3px 0; /* Spacing between lines */
-    transition: all 0.3s ease; /* Smooth transition */
+    width: 30px; 
+    height: 3px; 
+    background: white;
+    margin: 3px 0;
+    transition: all 0.3s ease;
 }
 
 .nav-links {
     list-style: none;
-    display: flex; /* Flexbox for horizontal layout */
-    gap: 20px; /* Spacing between links */
+    display: flex; 
+    gap: 20px; 
 }
 
 .nav-links.active {
-    display: flex; /* Show the links when active */
+    display: flex; 
 }
 
 .nav-links li {
-    margin: 0; /* Remove margin */
+    margin: 0; 
 }
 
 .nav-links a {
-    text-decoration: none; /* Remove underline */
-    color: #fff; /* White link color */
-    font-size: 16px; /* Link size */
-    font-family: 'Arial', sans-serif; /* Better font */
-    transition: color 0.3s; /* Smooth color transition on hover */
+    text-decoration: none;
+    color: #fff; 
+    font-size: 32px; 
+    transition: color 0.3s; 
 }
 
 .nav-links a:hover {
-    color: #ccc; /* Change color on hover */
+    color: #ccc; 
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
 .nav-links {
-    display: none; /* Hide links by default on mobile */
-    flex-direction: column; /* Stack links vertically */
+    display: none; 
+    flex-direction: column; 
 }
 
 .hamburger {
-    display: flex; /* Show hamburger button on mobile */
+    display: flex; 
 }
 
 .nav-links.active {
-    display: flex; /* Show links when active */
+    display: flex; 
 }
 }
-
-/* styles.css */
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Oswald", sans-serif;
+    font-size: 24px;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
   }
   
   .App {
-    justify-content: center;     /* Center the bubbles horizontally */
+    justify-content: center;     
     max-width: 100%;
     margin: 0 auto;
     padding: 20px;
@@ -174,21 +181,22 @@ body {
   }
 
   .container {
-    max-width: 100%; /* Allow the container to use full width */
-    padding: 20px; /* Add some padding around the container */
-    box-sizing: border-box; /* Include padding in total width */
-    display: flex;          /* Enable flexbox */
+    max-width: 100%; 
+    padding: 20px; 
+    box-sizing: border-box; 
+    display: flex;          
     justify-content: center; 
 }
 
 .table-wrapper {
-    max-width: 100%; /* Set maximum width of the wrapper */
-    max-height: 600px; /* Set maximum height for the table wrapper */
-    overflow: auto; /* Enable scrolling when content exceeds max height */
-    border: 1px solid #ccc; /* Optional: border around the table */
+    max-width: 100%; 
+    max-height: 600px; 
+    overflow: auto; 
+    border: 1px solid #ccc; 
 }
   
   table {
+    font-size: 24px;
     width: 100%;
     border-collapse: collapse;
     table-layout:inherit;
@@ -196,17 +204,17 @@ body {
   
   table th,
   table td {
-    padding: 10px 10px; /* Add padding for better spacing */
-    border: 1px solid #ccc; /* Add a border for better visibility */
-    text-align: left; /* Align text to the left */
-    white-space: nowrap; /* Prevent text from wrapping to a new line */
-    overflow: hidden; /* Hide overflow content */
+    padding: 10px 10px; 
+    border: 1px solid #ccc; 
+    text-align: left; 
+    white-space: nowrap; 
+    overflow: hidden; 
     min-width: 50px; 
   }
   
   table th {
-    background-color: #61dafb;
-    font-weight: bold; /* Make header text bold */
+    background-color: #86d1af;
+    font-weight: bold;
   }
   
   table tr:hover {
@@ -215,15 +223,16 @@ body {
 
   button {
     padding: 0px 10px;
-    background-color: #61dafb;
+    background-color: #214032;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
   }
   
   button:hover {
-    background-color: #21a1f1;
+    background-color: #94bfaa;
   }
   
   footer {
@@ -237,7 +246,7 @@ body {
     height: 50px;
     border: none;
     border-radius: 50%;
-    background-color: #61dafb;
+    background-color: #214032;
     color: white;
     cursor: pointer;
   }
@@ -246,7 +255,6 @@ body {
     background-color: #5bd0e1;
   }
   
-  /* Modal Styles */
   .modal {
     position: fixed;
     top: 0;
@@ -291,13 +299,59 @@ body {
   }
   
   .hidden-column {
-    visibility: hidden; /* Makes the column invisible but retains its space */
+    visibility: hidden; 
   }
 
   .action-buttons {
-    display: none; /* Initially hidden */
+    display: none; 
   }
 
   tr:hover .action-buttons {
-    display: flex; /* Show on row hover */
+    display: flex;
   }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.15s ease-in;
+  }
+
+  .custom-select {
+    width: 200px; /* Set the width */
+    padding: 10px; /* Add some padding */
+    border: 2px solid #007BFF; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    background-color: white; /* Background color */
+    color: #333; /* Text color */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.custom-select:focus {
+    outline: none; /* Remove default focus outline */
+    border-color: #0056b3; /* Darker border on focus */
+}
+
+.custom-select option {
+    padding: 10px; /* Padding for options (not supported in all browsers) */
+}
+
+.input-custom {
+    width: 200px; /* Set the width */
+    padding: 10px; /* Add padding */
+    border: 2px solid #007BFF; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    color: #333; /* Text color */
+}
+
+.button-custom {
+    font-size: 16px; /* Font size */
+}
