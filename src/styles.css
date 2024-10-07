@@ -1,0 +1,303 @@
+/* Styles.css */
+.summary-container {
+    display: flex;               /* Use flexbox for layout */
+    flex-wrap: wrap;            /* Allow bubbles to wrap to the next line if necessary */
+    justify-content: center;     /* Center the bubbles horizontally */
+    gap: 20px;                  /* Space between the bubbles */
+    padding: 20px;              /* Add padding around the container */
+}
+
+/* Individual summary bubble */
+.summary-bubble {
+    background-color: #f5f5f5;   /* Background color for bubbles */
+    padding: 20px;               /* Padding inside the bubble */
+    border-radius: 10px;         /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 300px;                /* Set a fixed width for bubbles */
+    text-align: center;          /* Center text */
+    font-family: Arial, sans-serif; /* Font style */
+}
+
+.summary-bubble h2 {
+    margin-bottom: 20px;         /* Space below the heading */
+    color: #333;                 /* Heading color */
+}
+
+.summary-item {
+    margin-bottom: 15px;         /* Space below each summary item */
+}
+
+.summary-item p {
+    margin: 0;                   /* No margin for paragraph */
+    font-size: 16px;             /* Font size for paragraph */
+    color: #666;                 /* Paragraph color */
+}
+
+.summary-item h3 {
+    margin: 5px 0 0;            /* Space around the heading */
+    font-size: 24px;             /* Font size for sub-heading */
+    color: #333;                 /* Sub-heading color */
+}
+.footer {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+.add-expense-btn {
+    background-color: #ff6347; /* Tomato color */
+    color: white;
+    font-size: 24px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.add-expense-btn:hover {
+    background-color: #ff4500;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.add-expense-btn:focus {
+    outline: none;
+}
+
+/* Navbar.css */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+}
+
+.logo {
+    margin: 0;
+    font-size: 24px; /* Logo size */
+    font-weight: bold; /* Logo weight */
+    font-family: 'Arial', sans-serif; /* Better font */
+}
+
+.hamburger {
+    display: none; /* Hide by default */
+    flex-direction: column;
+    background: none; /* No background */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.hamburger span {
+    width: 30px; /* Width of hamburger lines */
+    height: 3px; /* Height of hamburger lines */
+    background: white; /* White lines */
+    margin: 3px 0; /* Spacing between lines */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex; /* Flexbox for horizontal layout */
+    gap: 20px; /* Spacing between links */
+}
+
+.nav-links.active {
+    display: flex; /* Show the links when active */
+}
+
+.nav-links li {
+    margin: 0; /* Remove margin */
+}
+
+.nav-links a {
+    text-decoration: none; /* Remove underline */
+    color: #fff; /* White link color */
+    font-size: 16px; /* Link size */
+    font-family: 'Arial', sans-serif; /* Better font */
+    transition: color 0.3s; /* Smooth color transition on hover */
+}
+
+.nav-links a:hover {
+    color: #ccc; /* Change color on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+.nav-links {
+    display: none; /* Hide links by default on mobile */
+    flex-direction: column; /* Stack links vertically */
+}
+
+.hamburger {
+    display: flex; /* Show hamburger button on mobile */
+}
+
+.nav-links.active {
+    display: flex; /* Show links when active */
+}
+}
+
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  .App {
+    justify-content: center;     /* Center the bubbles horizontally */
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+
+  .container {
+    max-width: 100%; /* Allow the container to use full width */
+    padding: 20px; /* Add some padding around the container */
+    box-sizing: border-box; /* Include padding in total width */
+    display: flex;          /* Enable flexbox */
+    justify-content: center; 
+}
+
+.table-wrapper {
+    max-width: 100%; /* Set maximum width of the wrapper */
+    max-height: 600px; /* Set maximum height for the table wrapper */
+    overflow: auto; /* Enable scrolling when content exceeds max height */
+    border: 1px solid #ccc; /* Optional: border around the table */
+}
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout:inherit;
+  }
+  
+  table th,
+  table td {
+    padding: 10px 10px; /* Add padding for better spacing */
+    border: 1px solid #ccc; /* Add a border for better visibility */
+    text-align: left; /* Align text to the left */
+    white-space: nowrap; /* Prevent text from wrapping to a new line */
+    overflow: hidden; /* Hide overflow content */
+    min-width: 50px; 
+  }
+  
+  table th {
+    background-color: #61dafb;
+    font-weight: bold; /* Make header text bold */
+  }
+  
+  table tr:hover {
+    background-color: #f1f1f1;
+  }
+
+  button {
+    padding: 0px 10px;
+    background-color: #61dafb;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #21a1f1;
+  }
+  
+  footer {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .add-expense-btn {
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background-color: #61dafb;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .add-expense-btn:hover {
+    background-color: #5bd0e1;
+  }
+  
+  /* Modal Styles */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    text-align: left;
+  }
+  
+  .modal-content h4 {
+    margin-top: 0;
+  }
+  
+  .modal-content label {
+    display: block;
+    margin-bottom: 5px;
+    width: "100%"
+  }
+  
+  .modal-content input[type="text"],
+  .modal-content input[type="number"],
+  .modal-content input[type="date"],
+  .modal-content select {
+    width: 70%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .hidden-column {
+    visibility: hidden; /* Makes the column invisible but retains its space */
+  }
+
+  .action-buttons {
+    display: none; /* Initially hidden */
+  }
+
+  tr:hover .action-buttons {
+    display: flex; /* Show on row hover */
+  }
